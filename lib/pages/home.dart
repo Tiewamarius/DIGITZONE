@@ -78,6 +78,15 @@ class _HomeState extends State<Home> {
           const SizedBox(
             height: 20,
           ),
+          const Padding(
+            padding: EdgeInsets.only(left: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("CATEGORIES",style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+              ],
+            ),
+          ),
           Container(
             height: 135,
               margin: const EdgeInsets.all(15),
