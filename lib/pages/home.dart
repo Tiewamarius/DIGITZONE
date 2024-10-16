@@ -1,7 +1,10 @@
-import 'dart:ui';
-
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:digitzone/pages/dropDownBtn.dart';
+import 'package:digitzone/src/constants/colors.dart';
+import 'package:digitzone/src/constants/text_string.dart';
 import 'package:flutter/material.dart';
+
+import '../src/constants/image_string.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -25,22 +28,28 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+          backgroundColor: const Color.fromARGB(237, 244, 40, 74),
           actions: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(50),
-              child: Image.asset("assets/Ood.jpg",
-                  height: 60, width: 60, fit: BoxFit.cover),
+            Container(
+              padding: const EdgeInsets.only(right: 10),
+              /*child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: Image.asset("assets/Ood.jpg",
+                    height: 60, width: 60, fit: BoxFit.cover),
+                    
+              ),*/
+              child: const DropDown(),
             )
           ],
           title: Container(
-            margin: EdgeInsets.only(top: 20, bottom: 15),
+            margin: const EdgeInsets.only(top: 20, bottom: 25),
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.only(left: 20),
             decoration: BoxDecoration(
                 border: Border.all(
-                    color: const Color.fromARGB(255, 138, 19, 193), width: 0.5),
+                    color: const Color.fromARGB(255, 244, 40, 74), width: 0.5),
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(15)),
+                borderRadius: BorderRadius.circular(55)),
             child: const TextField(
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -52,44 +61,53 @@ class _HomeState extends State<Home> {
           leading: const Icon(Icons.menu)),
       body: Column(
         children: [
-          SizedBox(
-            width: double.infinity,
-            height: 250,
-            child: AnotherCarousel(
-              images: const [
-                AssetImage(
-                  "assets/Iphone.jpg",
-                ),
-                AssetImage(
-                  "assets/Iphone.jpg",
-                ),
-                AssetImage(
-                  "assets/Iphone.jpg",
-                ),
-                AssetImage(
-                  "assets/Iphone.jpg",
-                ),
-              ],
-              dotBgColor: Colors.transparent,
-              dotSize: 6,
-              indicatorBgPadding: 4,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: 240,
+              child: AnotherCarousel(
+                images: const [
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                ],
+                dotBgColor: Colors.transparent,
+                dotSize: 6,
+                indicatorBgPadding: 4,
+              ),
             ),
           ),
           const SizedBox(
             height: 20,
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 10.0),
+            padding: EdgeInsets.only(left: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("CATEGORIES",style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                Text(
+                  "CATEGORIES",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 78, 76, 76)),
+                ),
               ],
             ),
           ),
           Container(
-            height: 135,
-              margin: const EdgeInsets.all(15),
+              height: 80,
+              margin: const EdgeInsets.all(10),
               child: ListView.builder(
                 itemCount: categories.length,
                 shrinkWrap: true,
@@ -97,7 +115,27 @@ class _HomeState extends State<Home> {
                 itemBuilder: (context, index) {
                   return CategoryTile(image: categories[index]);
                 },
-              ))
+              )),
+          Expanded(
+            child: OrientationBuilder(builder: (context, Orientation) {
+              return GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8,
+                children: List.generate(5, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: paddingColor,
+                      ),
+                      
+                      child: Image.asset(tCable)),
+                  );
+                }),
+              );
+            }),
+          )
         ],
       ),
     );
@@ -111,11 +149,11 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
-      margin: EdgeInsets.only(right: 15),
-      decoration: const BoxDecoration(color: Colors.white),
-      height: 95,
-      width: 95,
+      padding: const EdgeInsets.all(10.0),
+      margin: const EdgeInsets.only(right: 20),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100), color: paddingColor),
+      width: 90,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
