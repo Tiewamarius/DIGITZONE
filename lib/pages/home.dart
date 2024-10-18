@@ -1,6 +1,7 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:digitzone/pages/dropDownBtn.dart';
 import 'package:digitzone/src/constants/colors.dart';
+import 'package:flexible_grid_view/flexible_grid_view.dart';
 import 'package:flutter/material.dart';
 
 import '../src/constants/image_string.dart';
@@ -14,7 +15,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List categories = [
-    "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
     "assets/telephone-intelligent.png",
     "assets/ordinateur-de-bureau.png",
     "assets/tuyau-deau.png",
@@ -23,25 +23,25 @@ class _HomeState extends State<Home> {
     "assets/gratuit.png",
   ];
 
-  List<Container> moviOscar = List();
+  //List<Container> moviOscar = List();
 
-  List articles = [
+  final List<Map<String, dynamic>> articles = [
     {
-      "name": "Iphon 16",
+      "name": "Imprimante",
       "descrit": "Original_impoerter",
       "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
       "prix": "700 000 XOF"
     },
     {
-      "name": "Iphon 16",
+      "name": "Imprimante",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
+      "image": "assets/Produits/disque-dur-externe-seagate-1tb.jpg",
       "prix": "700 000 XOF"
     },
     {
       "name": "Iphon 16",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
+      "image": "assets/Produits/Desktop.jpg",
       "prix": "700 000 XOF"
     },
     {
@@ -69,30 +69,28 @@ class _HomeState extends State<Home> {
       "prix": "700 000 XOF"
     },
   ];
-
+/*
   buldList() async {
     for (var i = 0; i < articles.length; i++) {
       final detailProdts = articles[i];
       final String imageProdts = detailProdts['image'];
       int pourcent = 85 + i++;
-      moviOscar.add(
-        Container(
-          padding: EdgeInsets.all(8),
-          child: Card(
-            elevation: 4.0,
-            child: Column(
-              children: [
-                Container(
-                  child:Hero(tag: tag, child: child) ,
-                )
-              ],
-            ),
+      moviOscar.add(Container(
+        padding: EdgeInsets.all(8),
+        child: Card(
+          elevation: 4.0,
+          child: Column(
+            children: [
+              Container(
+                child: Hero(tag: tag, child: child),
+              )
+            ],
           ),
-        )
-      )
+        ),
+      ));
     }
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,72 +126,95 @@ class _HomeState extends State<Home> {
           ),
           leading: const Icon(Icons.menu)),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: double.infinity,
-                height: 240,
-                child: AnotherCarousel(
-                  images: const [
-                    AssetImage(
-                      "assets/Iphone.jpg",
-                    ),
-                    AssetImage(
-                      "assets/Iphone.jpg",
-                    ),
-                    AssetImage(
-                      "assets/Iphone.jpg",
-                    ),
-                    AssetImage(
-                      "assets/Iphone.jpg",
-                    ),
-                  ],
-                  dotBgColor: Colors.transparent,
-                  dotSize: 6,
-                  indicatorBgPadding: 4,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "CATEGORIES",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 78, 76, 76)),
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: 240,
+              child: AnotherCarousel(
+                images: const [
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                  AssetImage(
+                    "assets/Iphone.jpg",
+                  ),
+                  AssetImage(
+                    "assets/Iphone.jpg",
                   ),
                 ],
+                dotBgColor: Colors.transparent,
+                dotSize: 6,
+                indicatorBgPadding: 4,
               ),
             ),
-            Container(
-                height: 80,
-                margin: const EdgeInsets.all(10),
-                child: ListView.builder(
-                  itemCount: categories.length,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return CategoryTile(image: categories[index]);
-                  },
-                )),
-            Container(
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "CATEGORIES",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 78, 76, 76)),
+                ),
+              ],
+            ),
+          ),
+          Container(
+              height: 80,
               margin: const EdgeInsets.all(10),
-              child: Column(
-                children: [],
-              ),
+              child: ListView.builder(
+                itemCount: categories.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return CategoryTile(image: categories[index]);
+                },
+              )),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
+                      mainAxisExtent: 250),
+                  itemCount: articles.length,
+                  itemBuilder: (_, index) {
+                    return Container(
+                    decoration: BoxDecoration(
+                      color: paddingColor,
+                    borderRadius: BorderRadius.circular(5)
+                    ),
+                    child:Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10),
+                           topRight: Radius.circular(10),),
+                          child: Image.asset("${articles.elementAt(index)['image']}",
+                          height:200,
+                          fit:BoxFit.cover)),
+                      ],
+                    )
+                    );
+                  }),
             ),
-            /* */
-          ],
-        ),
+          ),
+        ]),
       ),
     );
   }

@@ -9,7 +9,7 @@ const tCardBgColor = Color(0xFFF7F6F1);
 const tWhiteColor = Color(0xffffffff);
 const tDarkColor = Color(0xFF000000);
 
-const paddingColor = Color.fromARGB(255, 244, 244, 246);
+const paddingColor = Color(0xffF6F6F6);
 
 const background = Color(0xFFFFFFFF);
 const tonBoardingPage1Color = Colors.white;
