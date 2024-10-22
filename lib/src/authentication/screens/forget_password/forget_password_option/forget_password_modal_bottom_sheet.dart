@@ -8,7 +8,7 @@ class ForgetPasswordScreen {
     return showModalBottomSheet(
       context: context,
       builder: (context) => Container(
-        padding: EdgeInsets.all(tDefaultSize),
+        padding: const EdgeInsets.all(tDefaultSize),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -16,7 +16,7 @@ class ForgetPasswordScreen {
                 style: Theme.of(context).textTheme.headlineLarge),
             Text(tForgetPasswordsubTilte,
                 style: Theme.of(context).textTheme.bodyMedium),
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
             ForgetPasswordBtnWidget(
@@ -28,7 +28,7 @@ class ForgetPasswordScreen {
                 //Get.to(() => ForgetPasswordMailScreen());
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
             ForgetPasswordBtnWidget(

@@ -16,14 +16,14 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             color: Colors.grey.shade200),
         child: Row(
           children: [
             Icon(btnIcon, size: 67.0),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
             Column(

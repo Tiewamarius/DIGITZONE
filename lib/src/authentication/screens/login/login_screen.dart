@@ -88,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () => Get.to(() => Home()),
+                              onPressed: () => Get.to(() => const Home()),
                               
                               child: const Text(tLogin),
                               style: OutlinedButton.styleFrom(

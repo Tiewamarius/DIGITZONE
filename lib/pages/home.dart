@@ -1,19 +1,17 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
-import 'package:digitzone/pages/dropDownBtn.dart';
+import 'package:digitzone/pages/detailsProduits.dart';
 import 'package:digitzone/src/constants/colors.dart';
-import 'package:flexible_grid_view/flexible_grid_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../src/constants/image_string.dart';
-
-class Home extends StatefulWidget {
-  const Home({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeState extends State<Home> {
+class _HomePageState extends State<HomePage> {
   List categories = [
     "assets/telephone-intelligent.png",
     "assets/ordinateur-de-bureau.png",
@@ -27,86 +25,93 @@ class _HomeState extends State<Home> {
 
   final List<Map<String, dynamic>> articles = [
     {
-      "name": "Imprimante",
+      "name": "imprimante-hp-laserjet-pro",
       "descrit": "Original_impoerter",
       "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
-      "prix": "700 000 XOF"
+      "prix": "120 000 XOF"
     },
     {
-      "name": "Imprimante",
+      "name": "Disque-dur-externe1tb",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/disque-dur-externe-seagate-1tb.jpg",
-      "prix": "700 000 XOF"
+      "image": "assets/Produits/disque-dur-externe-1tb.png",
+      "prix": "33 000 XOF",
+      "note": 4,
+    },
+    {
+      "name": "Laptop_Hp-tactile",
+      "descrit": "Original_impoerter",
+      "image": "assets/Produits/ordinateur-portable-tactile.png",
+      "prix": "325 000 XOF",
+      "note": 4,
+    },
+    {
+      "name": "Tv_Smart",
+      "descrit": "Original_impoerter",
+      "image": "assets/Produits/Tv_Smart.png",
+      "prix": "2 000 XOF /M",
+      "note": 4,
+    },
+    {
+      "name": "Disque-Externe_500Gb",
+      "descrit": "Original_impoerter",
+      "image": "assets/Produits/Disques_.png",
+      "prix": "22 000 XOF",
+      "note": 4,
+    },
+    {
+      "name": "Iphone 16-hero-geo",
+      "descrit": "Original_impoerter",
+      "image": "assets/Produits/Apple-iPhone-16-hero-geo.png",
+      "prix": "700 000 XOF",
+      "note": 4,
     },
     {
       "name": "Iphon 16",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/Desktop.jpg",
-      "prix": "700 000 XOF"
+      "image": "assets/Produits/Apple-iPhone-16.png",
+      "prix": "650 000 XOF",
+      "note": 4,
     },
     {
-      "name": "Iphon 16",
+      "name": "Dell-M1N98-Core-i7o",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
-      "prix": "700 000 XOF"
+      "image": "assets/Produits/Dell-Precision M1N98-Core-i7-desktop.png",
+      "prix": "250 000 XOF",
+      "note": 4,
     },
     {
-      "name": "Iphon 16",
+      "name": "AntiVirus",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
-      "prix": "700 000 XOF"
+      "image": "assets/Produits/AntiVirus.png",
+      "prix": "250 000 XOF",
+      "note": 4,
     },
     {
-      "name": "Iphon 16",
+      "name": "Screens_Bureau",
       "descrit": "Original_impoerter",
-      "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
-      "prix": "700 000 XOF"
-    },
-    {
-      "name": "Iphon 16",
-      "descrit": "Original_impoerter",
-      "image": "assets/Produits/imprimante-hp-laserjet-pro-m179fnw.png",
-      "prix": "700 000 XOF"
+      "image": "assets/Produits/Screens_Bureau.png",
+      "prix": "185 000 XOF",
+      "note": 4,
     },
   ];
-/*
-  buldList() async {
-    for (var i = 0; i < articles.length; i++) {
-      final detailProdts = articles[i];
-      final String imageProdts = detailProdts['image'];
-      int pourcent = 85 + i++;
-      moviOscar.add(Container(
-        padding: EdgeInsets.all(8),
-        child: Card(
-          elevation: 4.0,
-          child: Column(
-            children: [
-              Container(
-                child: Hero(tag: tag, child: child),
-              )
-            ],
-          ),
-        ),
-      ));
-    }
-  }
-*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: background,
-      appBar: AppBar(
-          backgroundColor: const Color.fromARGB(237, 244, 40, 74),
+      appBar: const MyAppBar(),
+      /*AppBar(
+          backgroundColor: tPrimaryColor,
           actions: [
             Container(
               padding: const EdgeInsets.only(right: 10),
-              /*child: ClipRRect(
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: Image.asset("assets/Ood.jpg",
                     height: 60, width: 60, fit: BoxFit.cover),
                     
-              ),*/
-              child: const DropDown(),
+              ),
             )
           ],
           title: Container(
@@ -124,126 +129,203 @@ class _HomeState extends State<Home> {
                   suffixIcon: Icon(Icons.search, color: tPrimaryColor)),
             ),
           ),
-          leading: const Icon(Icons.menu)),
-      body: SingleChildScrollView(
-        child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: double.infinity,
-              height: 240,
-              child: AnotherCarousel(
-                images: const [
-                  AssetImage(
-                    "assets/Iphone.jpg",
-                  ),
-                  AssetImage(
-                    "assets/Iphone.jpg",
-                  ),
-                  AssetImage(
-                    "assets/Iphone.jpg",
-                  ),
-                  AssetImage(
-                    "assets/Iphone.jpg",
-                  ),
-                ],
-                dotBgColor: Colors.transparent,
-                dotSize: 6,
-                indicatorBgPadding: 4,
-              ),
-            ),
-          ),
+          leading: const Icon(Icons.menu)),*/
+
+      body:
+      SingleChildScrollView(
+        child: Column(
+          children: [
+          //const AppBarContainer(),
+          const SlideSection(),
           const SizedBox(
             height: 20,
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "CATEGORIES",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 78, 76, 76)),
-                ),
-              ],
-            ),
-          ),
-          Container(
-              height: 80,
-              margin: const EdgeInsets.all(10),
-              child: ListView.builder(
-                itemCount: categories.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return CategoryTile(image: categories[index]);
-                },
-              )),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 8,
-                      mainAxisSpacing: 8,
-                      mainAxisExtent: 250),
-                  itemCount: articles.length,
-                  itemBuilder: (_, index) {
-                    return Container(
-                    decoration: BoxDecoration(
-                      color: paddingColor,
-                    borderRadius: BorderRadius.circular(5)
-                    ),
-                    child:Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10),
-                           topRight: Radius.circular(10),),
-                          child: Image.asset("${articles.elementAt(index)['image']}",
-                          height:200,
-                          fit:BoxFit.cover)),
-                      ],
-                    )
-                    );
-                  }),
-            ),
-          ),
+          const CategoriTitle(),
+          CategoriSection(categories: categories),
+          ProduitsContainer(articles: articles),
         ]),
       ),
     );
   }
 }
 
-class ArticleBody extends StatelessWidget {
-  const ArticleBody({
+class CategoriTitle extends StatelessWidget {
+  const CategoriTitle({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return OrientationBuilder(builder: (context, Orientation) {
-      return GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        children: List.generate(5, (index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
+    return const Padding(
+      padding: EdgeInsets.only(left: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            "CATEGORIES",
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 78, 76, 76)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SlideSection extends StatelessWidget {
+  const SlideSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
+        width: double.infinity,
+        height: 240,
+        child: AnotherCarousel(
+          images: const [
+            AssetImage(
+              "assets/Apple-iPhone-16-Pro-Max.jpg",
+            ),
+            AssetImage(
+              "assets/testPub.png",
+            ),
+            AssetImage(
+              "assets/Iphone.jpg",
+            ),
+            AssetImage(
+              "assets/Pub001.jpg",
+            ),
+            AssetImage(
+              "assets/Iphone.jpg",
+            ),
+          ],
+          dotBgColor: Colors.transparent,
+          dotSize: 6,
+          indicatorBgPadding: 4,
+        ),
+      ),
+    );
+  }
+}
+
+class ProduitsContainer extends StatelessWidget {
+  const ProduitsContainer({
+    super.key,
+    required this.articles,
+  });
+
+  final List<Map<String, dynamic>> articles;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GridView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              mainAxisExtent: 280),
+          itemCount: articles.length,
+          itemBuilder: (_, index) {
+            return GestureDetector(
+              onTap:() => Get.to(() => const DetailProduits()),
+              child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: paddingColor,
+                    color: paddingColor,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                        child: Image.asset(
+                            "${articles.elementAt(index)['image']}",
+                            height: 180,
+                            fit: BoxFit.cover),
+                      ),
+                      /*
+                      Stack(children: [
+                        Positioned(
+                          top:5,
+                          right:-15,
+                          child: MaterialButton(
+                            color: Colors.white,
+                            shape: CircleBorder(),
+                            onPressed: (){},
+                            child:const Icon(
+                              Icons.favorite_outline_rounded,
+                              color:tPrimaryColor,
+                              size:20,),
+                              ),
+                            )
+                      ],),*/
+                      Text("${articles.elementAt(index)['name']}"),
+                      Text(
+                        "${articles.elementAt(index)['prix']}",
+                        style: const TextStyle(
+                          fontSize: 17,
+                        ),
+                      ),
+                      const Row(
+                        children: [
+                          Text(
+                            'Note',
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Color.fromARGB(255, 99, 103, 105)),
+                          ),
+                          Icon(Icons.star, color: tPrimaryColor),
+                          Icon(Icons.star, color: tPrimaryColor),
+                          Icon(Icons.star, color: tPrimaryColor),
+                          Icon(Icons.star_border_outlined,
+                              color: tPrimaryColor),
+                          Icon(Icons.star_border_outlined,
+                              color: tPrimaryColor)
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                child: Image.asset(tCable)),
-          );
-        }),
-      );
-    });
+              ),
+            );
+          }),
+    );
+  }
+}
+
+class CategoriSection extends StatelessWidget {
+  const CategoriSection({
+    super.key,
+    required this.categories,
+  });
+
+  final List categories;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 80,
+        margin: const EdgeInsets.all(10),
+        child: ListView.builder(
+          itemCount: categories.length,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return CategoryTile(image: categories[index]);
+          },
+        ));
   }
 }
 
@@ -253,19 +335,58 @@ class CategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10.0),
-      margin: const EdgeInsets.only(right: 20),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100), color: paddingColor),
-      width: 90,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(image, height: 60, width: 60, fit: BoxFit.cover),
-          /*Icon(Icons.forward)*/
-        ],
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50), color: const Color.fromARGB(255, 229, 225, 225)),
+        width: 70,
+        height: 50,
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(image, height: 45, width: 45, fit: BoxFit.cover),
+            
+          ],
+        ),
       ),
     );
+  }
+}
+
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({super.key});
+  @override
+  Size get preferredSize => const Size.fromHeight(50);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      leading: const Icon(Icons.menu),
+      title: const Text('HomePage',style:TextStyle(color:background)),
+      backgroundColor: tPrimaryColor,
+    );
+  }
+}
+class AppBarContainer extends StatelessWidget {
+  const AppBarContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+            margin: const EdgeInsets.only(left:25,top: 20, bottom: 10),
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.only(left: 20),
+            decoration: BoxDecoration(
+                border: Border.all(color: tPrimaryColor, width: 0.5),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(55)),
+            child: const TextField(
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Chercher Produits',
+                  suffixIcon: Icon(Icons.search, color: tPrimaryColor)),
+            ),
+          );
   }
 }

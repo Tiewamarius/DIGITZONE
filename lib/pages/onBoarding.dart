@@ -1,4 +1,8 @@
+import 'package:digitzone/src/authentication/screens/login/login_screen.dart';
+import 'package:digitzone/src/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -11,7 +15,7 @@ class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor:  const Color.fromARGB(255, 248, 245, 245),
+        backgroundColor: background,
         body: Container(
           margin: const EdgeInsets.only(top: 30),
             child: Column(
@@ -28,15 +32,14 @@ class _OnboardingState extends State<Onboarding> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: (){
-                    
-                  },
+                  onTap: () => Get.to(() => const LoginScreen()),
                   child: Container(
                     margin: const  EdgeInsets.only(right: 22),
                     padding: const EdgeInsets.all(45),
                     decoration: const BoxDecoration(
-                      color:Colors.grey,shape: BoxShape.circle),
-                    child: const Text("START",style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                      color:tPrimaryColor,shape: BoxShape.circle),
+                    child: const Text("START",style:TextStyle(color:Colors.white,
+                      fontSize: 20,fontWeight: FontWeight.bold)),
                     
                   ),
                 ),

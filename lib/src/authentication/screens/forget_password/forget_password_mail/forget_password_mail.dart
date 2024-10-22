@@ -13,11 +13,11 @@ class ForgetPasswordMailScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(tDefaultSize),
+            padding: const EdgeInsets.all(tDefaultSize),
             child: Column(
               children: [
-                SizedBox(height: tDefaultSize*0.4),
-                SizedBox(height: tDefaultSize,),
+                const SizedBox(height: tDefaultSize*0.4),
+                const SizedBox(height: tDefaultSize,),
                 Form(
                   child: Column(
                   children: [
@@ -30,19 +30,19 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                const SizedBox(height: 20.0,),
                 SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
                    // Get.to(() => OtpScreen());
                   },
-                  child: Text(tNext),
+                  child: const Text(tNext),
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.black,
                     elevation: 0,
                     foregroundColor: tWhiteColor,
-                    padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+                    padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
                   ),
