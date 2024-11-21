@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "name": "digitzone (Flutter motorola edge 5G UW 2021)",
+            "program": "lib/main.dart",
+            "deviceId": "ZD2223DFXV",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
