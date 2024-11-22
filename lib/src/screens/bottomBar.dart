@@ -1,4 +1,5 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:digitzone/src/authentication/models/produits/allProduct.dart';
 import 'package:digitzone/src/constants/colors.dart';
 import 'package:digitzone/src/screens/allproductPage.dart';
 import 'package:digitzone/src/screens/panierPage.dart';
@@ -33,7 +34,7 @@ class _BottomNavigationBartState extends State<BottomNavigationBart> {
     profilePage = const Profile();
     pages = [
       const HomePage(),
-      const AllproductPage(),
+      const Allproduct(),
       const CartScreen(),
       const Profile()
     ];
@@ -65,12 +66,12 @@ class _BottomNavigationBartState extends State<BottomNavigationBart> {
           
         ),
         CustomNavigationBarItem(
-          icon: const  Icon(Icons.grid_4x4),
+          icon: const  Icon(Icons.menu_open),
           title: const Text("Categories",style: TextStyle(fontSize: 15,color: tPrimaryColor,fontWeight: FontWeight.bold),),
         ),
         CustomNavigationBarItem(
           icon: const  Icon(Icons.shopping_cart),
-          title: const Text("CartScreen",style: TextStyle(fontSize: 15,color: tPrimaryColor,fontWeight: FontWeight.bold),),
+          title: const Text("Panier",style: TextStyle(fontSize: 15,color: tPrimaryColor,fontWeight: FontWeight.bold),),
           badgeCount: _badgeCounts[3],
           showBadge: _badgeShows[2],
         ),

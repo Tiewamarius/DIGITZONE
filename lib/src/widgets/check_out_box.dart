@@ -37,7 +37,7 @@ class CheckOutBox extends StatelessWidget {
               ),
               filled: true,
               fillColor: paddingColor,
-              hintText: "Enter Code Promo",
+              hintText: "Entrer Code Promo",
               hintStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -107,7 +107,7 @@ class CheckOutBox extends StatelessWidget {
               minimumSize: const Size(double.infinity, 55),
             ),
             child: const Text(
-              "Check out",
+              "COMMANDER",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,

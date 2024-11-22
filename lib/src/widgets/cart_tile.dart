@@ -30,7 +30,7 @@ class CartTile extends StatelessWidget {
                 height: 85,
                 width: 85,
                 decoration: BoxDecoration(
-                  color: tPrimaryColor,
+                  color: paddingColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 padding: const EdgeInsets.all(10),
@@ -88,7 +88,7 @@ class CartTile extends StatelessWidget {
               Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: tPrimaryColor,
+                  color: paddingColor,
                   border: Border.all(
                     color: Colors.grey.shade200,
                     width: 2,

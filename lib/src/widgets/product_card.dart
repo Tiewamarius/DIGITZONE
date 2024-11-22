@@ -3,17 +3,23 @@ import 'package:digitzone/src/constants/colors.dart';
 import 'package:digitzone/src/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final Product product;
   const ProductCard({super.key, required this.product});
 
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ProductScreen(product: product),
+            builder: (context) => ProductScreen(product: widget.product),
           ),
         );
       },
@@ -28,45 +34,66 @@ class ProductCard extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Image.asset(
-                  product.image,
-                  width: 120,
-                  height: 120,
+                Image.asset( widget.product.image,
+                  width: 130,
+                  height: 130,
                 ),
-                Text(
-                  product.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "${product.price}F CFA",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+                    const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(widget.product.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
                     ),
-                    Row(
-                      children: List.generate(
-                        product.colors.length,
-                        (cindex) => Container(
-                          height: 15,
-                          width: 15,
-                          margin: const EdgeInsets.only(right: 2),
-                          decoration: BoxDecoration(
-                            color: product.colors[cindex],
-                            shape: BoxShape.circle,
-                          ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(  "Prix:${(widget.product.price)}F CFA",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
                         ),
                       ),
-                    )
+                      Row(
+                        children: [
+                           const Text(
+                            "Couleurs",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                      const SizedBox(width: 10),
+                          Row(
+                            children: List.generate(
+                              widget.product.colors.length,
+                              (cindex) => Container(
+                                height: 18,
+                                width: 18,
+                                margin: const EdgeInsets.only(right: 2),
+                                decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: const Color.fromARGB(255, 83, 88, 92),
+                                  width: 2.0,),
+                                color: widget.product.colors[cindex],
+                                shape: BoxShape.circle,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+
+
+                
                   ],
-                )
-              ],
+                
             ),
           ),
           Positioned.fill(
@@ -82,10 +109,15 @@ class ProductCard extends StatelessWidget {
                     bottomLeft: Radius.circular(10),
                   ),
                 ),
-                child: const Icon(
-                  Icons.favorite,
+                child:  IconButton(
+                  icon:Icon(_isObscure ? Icons.favorite_border : Icons.favorite,),
+                  onPressed: (){
+                    setState(() {
+                      _isObscure = !_isObscure;
+                    });
+                  },
                   color: tPrimaryColor,
-                  size: 18,
+                  iconSize: 18,
                 ),
               ),
             ),

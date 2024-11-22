@@ -28,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
                 const SearchField(),
                 const SizedBox(height: 20),
                SlideSection(),

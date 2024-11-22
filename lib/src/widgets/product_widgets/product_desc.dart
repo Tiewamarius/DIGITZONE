@@ -16,7 +16,7 @@ class ProductDescription extends StatelessWidget {
           height: 38,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: tPrimaryColor,
+            color: const Color.fromARGB(255, 235, 22, 72),
           ),
           alignment: Alignment.center,
           child: const Text(

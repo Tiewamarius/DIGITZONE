@@ -26,7 +26,7 @@ class _OnboardingState extends State<Onboarding> {
               child: Text("EXPLORER LES MEILLEURS \nChez digitZONE",
               style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),),
             ),
-            const SizedBox(height: 280,),
+            const SizedBox(height: 100,),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

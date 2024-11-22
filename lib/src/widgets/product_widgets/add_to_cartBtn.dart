@@ -21,7 +21,7 @@ class AddToCart extends StatelessWidget {
         height: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: Colors.black,
+          color: paddingColor,
         ),
         padding: const EdgeInsets.symmetric(horizontal: 10),
         alignment: Alignment.center,
@@ -32,7 +32,7 @@ class AddToCart extends StatelessWidget {
               height: 40,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.grey,
+                  color:tPrimaryColor,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(20),
@@ -44,13 +44,13 @@ class AddToCart extends StatelessWidget {
                     iconSize: 18,
                     icon: const Icon(
                       Icons.remove,
-                      color: Colors.white,
+                      color:tPrimaryColor,
                     ),
                   ),
                   const SizedBox(width: 5),
                   Text(
                     currentNumber.toString(),
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: tPrimaryColor),
                   ),
                   const SizedBox(width: 5),
                   IconButton(
@@ -58,7 +58,7 @@ class AddToCart extends StatelessWidget {
                     iconSize: 18,
                     icon: const Icon(
                       Icons.add,
-                      color: Colors.white,
+                      color: tPrimaryColor,
                     ),
                   ),
                 ],
@@ -68,15 +68,15 @@ class AddToCart extends StatelessWidget {
               height: 60,
               decoration: BoxDecoration(
                 color: tPrimaryColor,
-                borderRadius: BorderRadius.circular(60),
+                borderRadius: BorderRadius.circular(50),
               ),
               alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: const Text(
-                "Add to Cart",
+                "Ajouter au panier",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),

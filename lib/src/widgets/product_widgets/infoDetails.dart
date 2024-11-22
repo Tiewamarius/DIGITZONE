@@ -25,7 +25,7 @@ class ProductInfo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "\$${product.price}",
+                  "${product.price} F CFA",
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class ProductInfo extends StatelessWidget {
                     ),
                     const SizedBox(width: 5),
                     const Text(
-                      "(320 Reviews)",
+                      "(320 Avis)",
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 14,
@@ -81,9 +81,9 @@ class ProductInfo extends StatelessWidget {
             const Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(text: "Couturier(ière): "),
+                  TextSpan(text: "Vendeur: "),
                   TextSpan(
-                    text: "Tailleur_kOffi",
+                    text: "YobShop",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),

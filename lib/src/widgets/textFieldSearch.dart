@@ -9,11 +9,12 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      margin: EdgeInsets.all(10),
+      height: 45,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: tPrimaryColor,
-        borderRadius: BorderRadius.circular(30),
+        color: paddingColor,
+        borderRadius: BorderRadius.circular(15),
       ),
       padding: const EdgeInsets.symmetric(
         horizontal: 25,
@@ -21,7 +22,7 @@ class SearchField extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(Icons.search,
+          const Icon(Icons.edit,
             color: Colors.grey,
           ),
           const SizedBox(width: 10),

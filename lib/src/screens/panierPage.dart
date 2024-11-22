@@ -33,7 +33,7 @@ class _CartScreenState extends State<CartScreen> {
             style: IconButton.styleFrom(
               backgroundColor: Colors.white,
             ),
-            icon:  Icon(Icons.back_hand_outlined),
+            icon:  Icon(Icons.arrow_back),
           ),
         ),
       ),

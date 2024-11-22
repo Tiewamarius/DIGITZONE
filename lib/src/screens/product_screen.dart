@@ -1,9 +1,9 @@
 import 'package:digitzone/src/authentication/models/produits/produits.dart';
 import 'package:digitzone/src/constants/colors.dart';
-import 'package:digitzone/src/widgets/product_widgets/add_to_cart.dart';
+import 'package:digitzone/src/widgets/product_widgets/add_to_cartBtn.dart';
 import 'package:digitzone/src/widgets/product_widgets/appbar.dart';
 import 'package:digitzone/src/widgets/product_widgets/image_slider.dart';
-import 'package:digitzone/src/widgets/product_widgets/information.dart';
+import 'package:digitzone/src/widgets/product_widgets/infoDetails.dart';
 import 'package:digitzone/src/widgets/product_widgets/product_desc.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +59,7 @@ class _ProductScreenState extends State<ProductScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                  5,
+                  4,
                   (index) => AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     width: currentImage == index ? 15 : 8,
@@ -79,6 +79,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
               const SizedBox(height: 20),
               Container(
+                margin: EdgeInsets.all(8),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -98,15 +99,17 @@ class _ProductScreenState extends State<ProductScreen> {
                   children: [
                     ProductInfo(product: widget.product),
                     const SizedBox(height: 20),
-                    const Text(
-                      "Color",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
                     Row(
+                      children: [
+                        const Text(
+                          "Couleurs",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 10,),
+                        Expanded(child:Row(
                       children: List.generate(
                         widget.product.colors.length,
                         (index) => GestureDetector(
@@ -117,22 +120,24 @@ class _ProductScreenState extends State<ProductScreen> {
                           },
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
-                            width: 35,
-                            height: 35,
+                            width: 30,
+                            height: 30,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: currentColor == index
-                                  ? Colors.white
+                                  ? paddingColor
                                   : widget.product.colors[index],
                               border: currentColor == index
                                   ? Border.all(
                                       color: widget.product.colors[index],
                                     )
-                                  : null,
+                                  : Border.all(
+                            color: const Color.fromARGB(255, 83, 88, 92),
+                            width: 2.0,),
                             ),
                             padding: currentColor == index
                                 ? const EdgeInsets.all(2)
-                                : null,
+                                : const EdgeInsets.all(1),
                             margin: const EdgeInsets.only(right: 15),
                             child: Container(
                               width: 30,
@@ -145,6 +150,8 @@ class _ProductScreenState extends State<ProductScreen> {
                           ),
                         ),
                       ),
+                    ),)
+                      ],
                     ),
                     const SizedBox(height: 20),
                     ProductDescription(text: widget.product.description),
