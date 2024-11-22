@@ -1,6 +1,5 @@
-//import 'package:digitzone/src/authentication/screens/login/login_screen.dart';
 import 'package:digitzone/src/constants/colors.dart';
-import 'package:digitzone/src/pages/bottomBar.dart';
+import 'package:digitzone/src/screens/bottomBar.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatefulWidget {

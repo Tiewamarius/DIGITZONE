@@ -1,4 +1,4 @@
-import 'package:digitzone/src/pages/onBoarding.dart';
+import 'package:digitzone/src/screens/onBoarding.dart';
 import 'package:flutter/material.dart';
 //import 'pages/onBoarding.dart';
 void main() {

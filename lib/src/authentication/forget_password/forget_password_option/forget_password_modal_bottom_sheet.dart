@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../constants/size.dart';
-import '../../../../constants/text_string.dart';
+import 'package:digitzone/src//constants/size.dart';
+import 'package:digitzone/src//constants/text_string.dart';
 import 'forget_password_btn_widget.dart';
 
 class ForgetPasswordScreen {

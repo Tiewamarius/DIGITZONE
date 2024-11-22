@@ -1,10 +1,9 @@
+import 'package:digitzone/src/constants/colors.dart';
+import 'package:digitzone/src/constants/image_string.dart';
+import 'package:digitzone/src/constants/size.dart';
+import 'package:digitzone/src/constants/text_string.dart';
+import 'package:digitzone/src/screens/home.dart';
 import 'package:flutter/material.dart';
-
-import '../../../pages/home.dart';
-import '../../../constants/colors.dart';
-import '../../../constants/image_string.dart';
-import '../../../constants/size.dart';
-import '../../../constants/text_string.dart';
 import '../forget_password/forget_password_option/forget_password_modal_bottom_sheet.dart';
 
 class LoginScreen extends StatelessWidget {

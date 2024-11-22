@@ -1,6 +1,8 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:digitzone/src/authentication/models/produits/produits.dart';
 import 'package:digitzone/src/constants/colors.dart';
-import 'package:digitzone/src/pages/detailsProduits.dart';
+import 'package:digitzone/src/widgets/product_card.dart';
+import 'package:digitzone/src/widgets/textFieldSearch.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -97,44 +99,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: background,
-      appBar: const MyAppBar(),
-      /*AppBar(
-          backgroundColor: tPrimaryColor,
-          actions: [
-            Container(
-              padding: const EdgeInsets.only(right: 10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Image.asset("assets/Ood.jpg",
-                    height: 60, width: 60, fit: BoxFit.cover),
-                    
-              ),
-            )
-          ],
-          title: Container(
-            margin: const EdgeInsets.only(top: 20, bottom: 25),
-            width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.only(left: 20),
-            decoration: BoxDecoration(
-                border: Border.all(color: tPrimaryColor, width: 0.5),
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(55)),
-            child: const TextField(
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Chercher Produits',
-                  suffixIcon: Icon(Icons.search, color: tPrimaryColor)),
-            ),
-          ),
-          leading: const Icon(Icons.menu)),*/
-
-      body:
+     
+     body:
       SingleChildScrollView(
         child: Column(
           children: [
-          //const AppBarContainer(),
+          SearchField(),
           const SlideSection(),
           const SizedBox(
             height: 20,
@@ -232,60 +203,10 @@ class ProduitsContainer extends StatelessWidget {
               crossAxisSpacing: 8,
               mainAxisSpacing: 8,
               mainAxisExtent: 280),
-          itemCount: articles.length,
-          itemBuilder: (_, index) {
-            return GestureDetector(
-              onTap:() {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const DetailProduits()));
-                },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: paddingColor,
-                    borderRadius: BorderRadius.circular(5)),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                        child: Image.asset(
-                            "${articles.elementAt(index)['image']}",
-                            height: 180,
-                            fit: BoxFit.cover),
-                      ),
-                      Text("${articles.elementAt(index)['name']}"),
-                      Text(
-                        "${articles.elementAt(index)['prix']}",
-                        style: const TextStyle(
-                          fontSize: 17,
-                        ),
-                      ),
-                      const Row(
-                        children: [
-                          Text(
-                            'Note',
-                            style: TextStyle(
-                                fontSize: 17,
-                                color: Color.fromARGB(255, 99, 103, 105)),
-                          ),
-                          Icon(Icons.star, color: tPrimaryColor),
-                          Icon(Icons.star, color: tPrimaryColor),
-                          Icon(Icons.star, color: tPrimaryColor),
-                          Icon(Icons.star_border_outlined,
-                              color: tPrimaryColor),
-                          Icon(Icons.star_border_outlined,
-                              color: tPrimaryColor)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          }),
+              itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    return ProductCard(product: products[index]);}
+          ),
     );
   }
 }
@@ -328,7 +249,6 @@ class CategoryTile extends StatelessWidget {
         width: 70,
         height: 50,
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(image, height: 45, width: 45, fit: BoxFit.cover),
             

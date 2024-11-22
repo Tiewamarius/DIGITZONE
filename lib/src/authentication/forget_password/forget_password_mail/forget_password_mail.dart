@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/colors.dart';
-import '../../../../constants/size.dart';
-import '../../../../constants/text_string.dart';
+import 'package:digitzone/src//constants/colors.dart';
+import 'package:digitzone/src//constants/size.dart';
+import 'package:digitzone/src//constants/text_string.dart';
 
 class ForgetPasswordMailScreen extends StatelessWidget {
   const ForgetPasswordMailScreen({super.key});
