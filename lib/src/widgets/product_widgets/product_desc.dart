@@ -1,5 +1,3 @@
-
-import 'package:digitzone/src/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class ProductDescription extends StatelessWidget {
